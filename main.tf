@@ -15,7 +15,7 @@ variable "prefix" {
 }
 
 resource "google_compute_instance" "default" {
-    count = 2
+    count = 1
     name = "${var.prefix}-${count.index}"
     machine_type = "n1-standard-1"
  

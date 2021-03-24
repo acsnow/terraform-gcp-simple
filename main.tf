@@ -17,7 +17,7 @@ variable "prefix" {
 resource "google_compute_instance" "default" {
     count = 2
     name = "${var.prefix}-${count.index}"
-    machine_type = "f1-micro"
+    machine_type = "n1-standard-1"
  
     boot_disk {
          initialize_params {

@@ -26,9 +26,9 @@ resource "google_compute_instance" "default" {
          }
     }
 
-    metadata = {
-        ssh-keys = "csnow:${file("~/.ssh/id_rsa.pub")}"
-    }
+    #metadata = {
+    #    ssh-keys = "csnow:${file("~/.ssh/id_rsa.pub")}"
+    #}
 
     network_interface {
         network = "default"

@@ -30,6 +30,7 @@ resource "google_compute_instance" "default" {
     #    ssh-keys = "csnow:${file("~/.ssh/id_rsa.pub")}"
     #}
 
+
     network_interface {
         network = "default"
         access_config {

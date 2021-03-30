@@ -1,5 +1,5 @@
 provider "google" {
-  #credentials = "../five9/secrets/packer-image-creator.json"
+  credentials = "ignw-anthos-lab-pod1a-7288de7639f8.json"
   project      = "ignw-anthos-lab-pod1a"
   region       = "us-west1"
   zone 	       = "us-west1-a"
@@ -15,7 +15,7 @@ variable "prefix" {
 }
 
 resource "google_compute_instance" "default" {
-    count = 0
+    count = 1
     name = "${var.prefix}-${count.index}"
     machine_type = "n1-standard-1"
  

@@ -7,7 +7,7 @@ provider "google" {
 #ubuntu-2204-jammy-v20240228  ubuntu-2204-lts
 data "google_compute_image" "ubuntu_image" {
   family  = "ubuntu-2310-amd64"
-#  project = "tfc-sip-01"
+  project = "tfc-sip-01"
 }
 
 variable "prefix" {

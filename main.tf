@@ -4,10 +4,11 @@ provider "google" {
   zone 	       = "us-west1-a"
 }
 
-#data "google_compute_image" "ubuntu_image" {
-#  family  = "ubuntu-2004-lts"
-#  project = "ignw-anthos-lab-pod1a"
-#}
+#ubuntu-2204-jammy-v20240228  ubuntu-2204-lts
+data "google_compute_image" "ubuntu_image" {
+  family  = "ubuntu-2204-lts"
+  project = "tfc-sip-01"
+}
 
 variable "prefix" {
   default = "csnow"
@@ -20,8 +21,8 @@ resource "google_compute_instance" "default" {
  
     boot_disk {
          initialize_params {
-             #image =  data.google_compute_image.ubuntu_image.self_link
-             image =  "ubuntu-2004-focal-v20210323"
+             image =  data.google_compute_image.ubuntu_image.self_link
+             #image =  "ubuntu-2004-focal-v20210323"
          }
     }
 

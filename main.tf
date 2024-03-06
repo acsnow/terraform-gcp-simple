@@ -1,6 +1,5 @@
 provider "google" {
-  credentials = "ignw-anthos-lab-pod1a-7288de7639f8.json"
-  project      = "ignw-anthos-lab-pod1a"
+  project      = "tfc-sip-01"
   region       = "us-west1"
   zone 	       = "us-west1-a"
 }
@@ -32,7 +31,8 @@ resource "google_compute_instance" "default" {
 
 
     network_interface {
-        network = "default"
+        network = "primary-vault-vpc"
+	subnetwork = "primary-subnet-01"
         access_config {
             # nat_ip is here
         }

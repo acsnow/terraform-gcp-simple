@@ -1,9 +1,9 @@
-terraform {
-  backend "remote" {
-    organization = "ignw"
-
-    workspaces {
-      name = "terraform-gcp-simple"
-    }
-  }
-}
+#terraform {
+#  backend "remote" {
+#    organization = "ignw"
+#
+#    workspaces {
+#      name = "terraform-gcp-simple"
+#    }
+#  }
+#}

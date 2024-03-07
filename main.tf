@@ -10,7 +10,7 @@ provider "google" {
 #}
 
 variable "prefix" {
-  default = "csnow"
+  default = "vault"
 }
 
 resource "google_compute_instance" "default" {

@@ -1,14 +1,14 @@
 ##########################################################################################
 ## Ensure default GCS Storage account can encrypt/decrypt on the cryto key(s):
 data "google_storage_project_service_account" "gcs_account" {
-  project = var.project_id
+  project = "tfc-sip-01"
 }
 
 ##########################################################################################
 ## Ensure default Pub/Sub service account can encrypt/decrypt on the cryto key(s):
 resource "google_project_service_identity" "pubsub-sa" {
   provider = google-beta
-  project  = var.project_id
+  project  = "tfc-sip-01"
   service  = "pubsub.googleapis.com"
 }
 
@@ -16,7 +16,7 @@ resource "google_project_service_identity" "pubsub-sa" {
 ## Ensure default Logging service account can encrypt/decrypt on the cryto key(s):
 resource "google_project_service_identity" "logging-sa" {
   provider = google-beta
-  project  = var.project_id
+  project  = "tfc-sip-01"
   service  = "logging.googleapis.com"
 }
 

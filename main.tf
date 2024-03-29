@@ -9,10 +9,6 @@ provider "google" {
 #  project = "tfc-sip-01"
 #}
 
-variable "prefix" {
-  default = "vault"
-}
-
 resource "google_compute_instance" "default" {
     count = 1
     name = "${var.prefix}-${count.index}"

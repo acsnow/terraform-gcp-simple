@@ -10,7 +10,8 @@ allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
 
 deny_can_ip_forward = rule {
         all allComputeInstances as _, instances {
-                instances.change.after.can_ip_forward is "false"
+                instances.change.after.can_ip_forward is "true"
+		print(instances.change.after.can_ip_forward)
         }
 }
 

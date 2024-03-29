@@ -13,3 +13,7 @@ variable "vpc" {
 variable "subnet" {
   default = "dr-subnet-01"
 }
+
+variable "node_count" {
+  default = 1
+}

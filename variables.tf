@@ -14,6 +14,6 @@ variable "subnet" {
   default = "default"
 }
 
-variable "count" {
+variable "node_count" {
   default = 1
 }

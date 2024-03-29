@@ -13,3 +13,7 @@ variable "vpc" {
 variable "subnet" {
   default = "default"
 }
+
+variable "count" {
+  default = 1
+}

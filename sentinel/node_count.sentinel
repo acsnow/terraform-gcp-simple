@@ -2,11 +2,13 @@ import "tfplan/v2" as tfplan
 import "strings"
 
 # Define the maximum number of allowed instances
-max_instances = 5
+max_instances = 2
 
 allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
 	resource_changes.type is "google_compute_instance" and
-        resource_changes.mode is "managed" 
+        	resource_changes.mode is "managed" and
+        		(resource_changes.change.actions contains "create" or
+        		resource_changes.change.actions is ["update"])
 }
 
 nodeCount = length(allComputeInstances)

@@ -2,11 +2,16 @@ import "tfplan/v2" as tfplan
 import "strings"
 import "tfplan-functions" as plan
 
-
 # Define the maximum number of allowed instances
 max_instances = 5
 
-allGCEInstances = plan.find_resources("google_compute_instance")
+allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
+        resource_changes.type is "google_compute_instance" and
+                resource_changes.mode is "managed" and
+                (resource_changes.change.actions contains "create" or
+                        resource_changes.change.actions is ["update"])
+}
+
 
 # Main rule to check instance count
 main = rule {
@@ -20,7 +25,7 @@ main = rule {
 	#    instance_count = count(gce_instances)
 
 	# Check if the number of instances exceeds the maximum allowed
-	allGCEInstances <= max_instances
+	allComputeInstances <= max_instances
 }
 
 print(allcomputenodes)

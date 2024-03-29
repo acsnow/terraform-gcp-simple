@@ -4,17 +4,26 @@ import "strings"
 # Define the maximum number of allowed instances
 max_instances = 5
 
+allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
+	resource_changes.type is "google_compute_instance" and
+		resource_changes.mode is "managed" and
+		(resource_changes.change.actions contains "create" or
+			resource_changes.change.actions is ["update"])
+}
+
+allcomputernodes = length(allComputeInstances)
+
 # Main rule to check instance count
 main = rule {
-    # Retrieve the resources from the Terraform plan
-    resources = tfplan.resources
-    
-    # Filter only Google Compute Engine instances
-    gce_instances = [resource for resource in resources.google_compute_instance]
-    
-    # Count the number of GCE instances being created
-    instance_count = count(gce_instances)
-    
-    # Check if the number of instances exceeds the maximum allowed
-    instance_count <= max_instances
+	# Retrieve the resources from the Terraform plan
+	#    resources = tfplan.resources
+
+	# Filter only Google Compute Engine instances
+	#    gce_instances = [resource for resource in resources.google_compute_instance]
+
+	# Count the number of GCE instances being created
+	#    instance_count = count(gce_instances)
+
+	# Check if the number of instances exceeds the maximum allowed
+	allcomputernodes <= max_instances
 }

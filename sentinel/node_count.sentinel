@@ -26,4 +26,4 @@ main = rule {
 	allComputeInstances <= max_instances
 }
 
-print(allcomputenodes)
+print(allComputeInstances)

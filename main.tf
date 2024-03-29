@@ -1,5 +1,5 @@
 provider "google" {
-  project      = "tfc-sip-01"
+  project      = "${var.project}"
   region       = "us-west1"
   zone 	       = "us-west1-a"
 }
@@ -27,8 +27,8 @@ resource "google_compute_instance" "default" {
 
 
     network_interface {
-        network = "primary-vault-vpc"
-	subnetwork = "primary-subnet-01"
+        network = "${var.vpc}"
+	subnetwork = "${var.subnet}"
         access_config {
             # nat_ip is here
         }

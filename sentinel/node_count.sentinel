@@ -6,9 +6,9 @@ max_instances = 2
 
 allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
 	resource_changes.type is "google_compute_instance" and
-        	resource_changes.mode is "managed" and
-        		(resource_changes.change.actions contains "create" or
-        		resource_changes.change.actions is ["update"])
+		resource_changes.mode is "managed" and
+		(resource_changes.change.actions contains "create" or
+			resource_changes.change.actions is ["update"])
 }
 
 nodeCount = length(allComputeInstances)

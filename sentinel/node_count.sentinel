@@ -11,6 +11,8 @@ allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
 			resource_changes.change.actions is ["update"])
 }
 
+nodeCount = length(allComputeInstances)
+
 # Main rule to check instance count
 main = rule {
 	# Retrieve the resources from the Terraform plan
@@ -23,7 +25,7 @@ main = rule {
 	#    instance_count = count(gce_instances)
 
 	# Check if the number of instances exceeds the maximum allowed
-	allComputeInstances <= max_instances
+	nodeCount <= max_instances
 }
 
-print(allComputeInstances)
+print(nodeCount)

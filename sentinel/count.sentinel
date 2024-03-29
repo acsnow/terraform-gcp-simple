@@ -1,0 +1,15 @@
+import "tfplan"
+
+# Define the maximum number of allowed instances
+max_instances = 5
+
+# Main rule to check instance count
+main = rule {
+    # Retrieve the resources from the Terraform plan
+    resources = tfplan.resources
+    # Count the number of instances being created
+    instance_count = count(resources.google_compute_instance)
+    
+    # Check if the number of instances exceeds the maximum allowed
+    instance_count <= max_instances
+}

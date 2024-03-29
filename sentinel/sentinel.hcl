@@ -22,3 +22,8 @@ policy "ensure-vm-disks-for-critical-vms-are-encrypted-with-customer-supplied-en
   source = "https://registry.terraform.io/v2/policies/hashicorp/gcp-compute-terraform/1.0.2/policy/ensure-vm-disks-for-critical-vms-are-encrypted-with-customer-supplied-encryption-keys.sentinel?checksum=sha256:7187623dffb81f77bbc6881f57cbdea2d3797788d66d77a4e330fc1b449e4fda"
   enforcement_level = "advisory"
 }
+
+policy "count"
+  source = count.sentinel
+  enforcement_level = "advisory"
+}

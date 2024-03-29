@@ -11,7 +11,7 @@ allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
 			resource_changes.change.actions is ["update"])
 }
 
-allcomputernodes = length(allComputeInstances)
+allcomputenodes = length(allComputeInstances)
 
 # Main rule to check instance count
 main = rule {
@@ -25,5 +25,7 @@ main = rule {
 	#    instance_count = count(gce_instances)
 
 	# Check if the number of instances exceeds the maximum allowed
-	allcomputernodes <= max_instances
+	allcomputenodes <= max_instances
 }
+
+print (allcomputenodes)

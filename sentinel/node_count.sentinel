@@ -1,4 +1,4 @@
-import "tfplan"
+import "tfplan/v2"
 
 # Define the maximum number of allowed instances
 max_instances = 5

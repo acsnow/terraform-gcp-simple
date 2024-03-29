@@ -7,9 +7,9 @@ variable "project" {
 }
 
 variable "vpc" {
-  default = "default"
+  default = "dr-vault-vpc"
 }
 
 variable "subnet" {
-  default = "default"
+  default = "dr-subnet-01"
 }

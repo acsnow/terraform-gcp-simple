@@ -10,7 +10,6 @@ main = rule {
     resources = tfplan.resources
     # Count the number of instances being created
     instance_count = count(resources.google_compute_instance)
-    
     # Check if the number of instances exceeds the maximum allowed
     instance_count <= max_instances
 }

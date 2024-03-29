@@ -1,4 +1,5 @@
-import "tfplan/v2"
+import "tfplan/v2" as tfplan
+import "strings"
 
 # Define the maximum number of allowed instances
 max_instances = 5

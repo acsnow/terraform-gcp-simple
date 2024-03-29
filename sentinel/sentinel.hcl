@@ -23,7 +23,7 @@ policy "ensure-vm-disks-for-critical-vms-are-encrypted-with-customer-supplied-en
   enforcement_level = "advisory"
 }
 
-policy "node_count" {
-  source = "./node_count.sentinel"
-  enforcement_level = "advisory"
-}
+#policy "node_count" {
+#  source = "./node_count.sentinel"
+#  enforcement_level = "advisory"
+#}

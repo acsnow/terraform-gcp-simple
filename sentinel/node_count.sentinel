@@ -8,8 +8,13 @@ max_instances = 5
 main = rule {
     # Retrieve the resources from the Terraform plan
     resources = tfplan.resources
-    # Count the number of instances being created
-    instance_count = count(resources.google_compute_instance)
+    
+    # Filter only Google Compute Engine instances
+    gce_instances = [resource for resource in resources.google_compute_instance]
+    
+    # Count the number of GCE instances being created
+    instance_count = count(gce_instances)
+    
     # Check if the number of instances exceeds the maximum allowed
     instance_count <= max_instances
 }

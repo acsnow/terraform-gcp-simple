@@ -8,6 +8,12 @@ allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
 	resource_changes.type is "google_compute_instance" 
 }
 
+deny_can_ip_forward = rule {
+        all allComputeInstances as _, instances {
+                instances.change.after.can_ip_forward is "true"
+        }
+}
+
 nodeCount = length(allComputeInstances)
 
 # Main rule to check instance count
@@ -22,6 +28,7 @@ main = rule {
 	#    instance_count = count(gce_instances)
 
 	# Check if the number of instances exceeds the maximum allowed
+        deny_can_ip_forward and
 	nodeCount <= max_instances
 }
 

@@ -27,3 +27,8 @@ policy "node_count" {
   source = "./node_count.sentinel"
   enforcement_level = "advisory"
 }
+
+policy "ip_forward" {
+  source = "./ip_forward.sentinel"
+  enforcement_level = "advisory"
+}

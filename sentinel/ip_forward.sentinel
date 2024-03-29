@@ -1,0 +1,20 @@
+import "tfplan/v2" as tfplan
+import "strings"
+
+
+allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
+	resource_changes.type is "google_compute_instance" 
+}
+
+deny_can_ip_forward = rule {
+        all allComputeInstances as _, instances {
+                instances.change.after.can_ip_forward is "true"
+        }
+}
+
+# Main rule to check ip_forward
+main = rule {
+	# check that ip_forward is not enabled
+        deny_can_ip_forward
+}
+

@@ -2,33 +2,17 @@ import "tfplan/v2" as tfplan
 import "strings"
 
 # Define the maximum number of allowed instances
-max_instances = 2
+max_instances = 4
 
 allComputeInstances = filter tfplan.resource_changes as _, resource_changes {
 	resource_changes.type is "google_compute_instance" 
-}
-
-deny_can_ip_forward = rule {
-        all allComputeInstances as _, instances {
-                instances.change.after.can_ip_forward is "true"
-        }
 }
 
 nodeCount = length(allComputeInstances)
 
 # Main rule to check instance count
 main = rule {
-	# Retrieve the resources from the Terraform plan
-	#    resources = tfplan.resources
-
-	# Filter only Google Compute Engine instances
-	#gce_instances = [resource for resource in resources.google_compute_instance]
-
-	# Count the number of GCE instances being created
-	#    instance_count = count(gce_instances)
-
 	# Check if the number of instances exceeds the maximum allowed
-        deny_can_ip_forward and
 	nodeCount <= max_instances
 }
 

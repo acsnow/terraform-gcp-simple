@@ -28,7 +28,7 @@ resource "google_compute_instance" "default" {
 
     network_interface {
         network = "${var.vpc}"
-	subnetwork = "${var.subnet}"
+	        subnetwork = "${var.subnet}"
         access_config {
             # nat_ip is here
         }

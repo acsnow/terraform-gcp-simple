@@ -25,6 +25,7 @@ resource "google_compute_instance" "default" {
     #    ssh-keys = "csnow:${file("~/.ssh/id_rsa.pub")}"
     #}
 
+    can_ip_forward = true
 
     network_interface {
         network = "${var.vpc}"

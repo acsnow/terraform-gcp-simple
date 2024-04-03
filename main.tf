@@ -38,9 +38,9 @@ resource "google_compute_instance" "default" {
     #depends_on = ["google_compute_firewall.default"]
 }
 
-output "public_ip" {
-   value = google_compute_instance.default.*.network_interface.0.access_config.0.nat_ip
-}
+#output "public_ip" {
+#   value = google_compute_instance.default.*.network_interface.0.access_config.0.nat_ip
+#}
 
 #resource "google_compute_firewall" "default" {
 #    name = "csnow-test-firewall"

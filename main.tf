@@ -4,10 +4,6 @@ provider "google" {
   zone 	       = "us-west1-a"
 }
 
-#data "google_compute_image" "ubuntu_image" {
-#  family  = "ubuntu-2310-amd64"
-#  project = "tfc-sip-01"
-#}
 
 resource "google_compute_instance" "default" {
     count = var.node_count
@@ -17,7 +13,8 @@ resource "google_compute_instance" "default" {
     boot_disk {
          initialize_params {
              #image =  data.google_compute_image.ubuntu_image.self_link
-             image =  "ubuntu-2310-mantic-amd64-v20240305"
+             image = "rhel-8-v20230509"
+             #image =  "ubuntu-2310-mantic-amd64-v20240305"
          }
     }
 

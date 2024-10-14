@@ -1,10 +1,4 @@
 
-data "google_compute_image" "ubuntu" {
-  family  = "ubuntu-2004-lts"
-  #family  = "ubuntu-pro-1604-lts"
-  project = "${var.project}"
-}
-
 
 resource "google_compute_instance" "default" {
     count = var.node_count
@@ -13,11 +7,8 @@ resource "google_compute_instance" "default" {
  
     boot_disk {
          initialize_params {
-             #image =  "ubuntu-2004-focal-v20240830"
+             image =  "ubuntu-2004-focal-v20240830"
              #image =  "ubuntu-pro-1604-xenial-v20240924"
- 	     #image = "ubuntu-os-cloud/ubuntu-2004-lts"
- 	     #image = "ubuntu-os-cloud/ubuntu-pro-1604-lts"
- 	     image = data.google_compute_image.ubuntu.self_link
          }
     }
 

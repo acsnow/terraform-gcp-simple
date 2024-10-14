@@ -6,7 +6,8 @@ resource "google_compute_instance" "default" {
     boot_disk {
          initialize_params {
              #image =  "ubuntu-2004-focal-v20240830"
-             image =  "ubuntu-pro-1604"
+             #image =  "ubuntu-pro-1604-xenial-v20240924"
+ 	      image = "ubuntu-os-cloud/ubuntu-2004-lts"
          }
     }
 

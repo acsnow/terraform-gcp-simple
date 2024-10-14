@@ -1,10 +1,3 @@
-provider "google" {
-  project      = "${var.project}"
-  region       = "us-west1"
-  zone 	       = "us-west1-a"
-}
-
-
 resource "google_compute_instance" "default" {
     count = var.node_count
     name = "${var.prefix}-${count.index}"
@@ -30,5 +23,3 @@ resource "google_compute_instance" "default" {
 
     #depends_on = ["google_compute_firewall.default"]
 }
-
-

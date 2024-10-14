@@ -1,6 +1,7 @@
 
 data "google_compute_image" "ubuntu" {
-  family  = "ubuntu-pro-1604-lts"
+  family  = "ubuntu-2004-lts"
+  #family  = "ubuntu-pro-1604-lts"
   project = "${var.project}"
 }
 

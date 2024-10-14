@@ -3,7 +3,7 @@ variable "prefix" {
 }
 
 variable "project" {
-  default = "tfc-sip-02"
+  default = "admin-services"
 }
 
 variable "vpc" {

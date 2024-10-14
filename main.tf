@@ -13,14 +13,10 @@ resource "google_compute_instance" "default" {
     boot_disk {
          initialize_params {
              #image =  data.google_compute_image.ubuntu_image.self_link
-             image = "rhel-8-v20230509"
-             #image =  "ubuntu-2310-mantic-amd64-v20240305"
+             #image = "rhel-8-v20230509"
+             image =  "ubuntu-2310-mantic-amd64-v20240305"
          }
     }
-
-    #metadata = {
-    #    ssh-keys = "csnow:${file("~/.ssh/id_rsa.pub")}"
-    #}
 
     #can_ip_forward = true
 

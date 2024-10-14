@@ -7,8 +7,8 @@ resource "google_compute_instance" "default" {
          initialize_params {
              #image =  data.google_compute_image.ubuntu_image.self_link
              #image = "rhel-8-v20230509"
-             image =  "ubuntu-2004-focal-v20240830"
-             #image =  "ubuntu-pro-1604-xenial-v20240924"
+             #image =  "ubuntu-2004-focal-v20240830"
+             image =  "ubuntu-pro-1604-xenial-v20240924"
          }
     }
 
@@ -21,6 +21,4 @@ resource "google_compute_instance" "default" {
             # nat_ip is here
         }
     }
-
-    #depends_on = ["google_compute_firewall.default"]
 }

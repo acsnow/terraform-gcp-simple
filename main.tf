@@ -14,7 +14,7 @@ resource "google_compute_instance" "default" {
          initialize_params {
              #image =  data.google_compute_image.ubuntu_image.self_link
              #image = "rhel-8-v20230509"
-             image =  "ubuntu-2310-mantic-amd64-v20240305"
+             image =  "ubuntu-2004-focal-v20240830"
          }
     }
 

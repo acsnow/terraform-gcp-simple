@@ -11,7 +11,7 @@ resource "google_compute_instance" "default" {
  
     boot_disk {
          initialize_params {
-             image =  "ubuntu-2004-focal-v20240830"
+             #image =  "ubuntu-2004-focal-v20240830"
              #image =  "ubuntu-pro-1804-bionic-v20240924"
              #image =  "ubuntu-pro-1604-xenial-v20240924"
              image = data.google_compute_image.ubuntu.self_link 

@@ -1,5 +1,5 @@
 data "google_compute_image" "ubuntu" {
-  family  = "ubuntu-1604"
+  family  = "ubuntu-1804"
   project = "admin-services-279721"
 }
 

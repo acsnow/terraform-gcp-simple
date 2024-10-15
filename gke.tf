@@ -2,7 +2,7 @@
 
 resource "google_container_cluster" "demo_wiz_01" {
   name     = "demo-wiz-01"
-  location = "${var.region}"
+  location = "${var.zone}"
   deletion_protection = false
   remove_default_node_pool = false
 

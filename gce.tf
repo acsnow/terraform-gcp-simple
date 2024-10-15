@@ -1,3 +1,7 @@
+data "google_compute_image" "ubuntu" {
+  family  = "ubuntu-1604"
+  project = "admin-services-279721"
+}
 
 
 resource "google_compute_instance" "default" {
@@ -10,6 +14,7 @@ resource "google_compute_instance" "default" {
              image =  "ubuntu-2004-focal-v20240830"
              #image =  "ubuntu-pro-1804-bionic-v20240924"
              #image =  "ubuntu-pro-1604-xenial-v20240924"
+             image = data.google_compute_image.ubuntu.self_link 
          }
     }
 

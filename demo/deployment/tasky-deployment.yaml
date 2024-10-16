@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasky-deployment
+  labels:
+    app: tasky-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tasky-wiz
+  template:
+    metadata:
+      labels:
+        app: tasky-wiz
+    spec:
+      serviceAccountName: tasky-sa
+      containers:
+      - name: tasky-wiz
+        image: csnow/csnow-tasky:1.2
+        env:
+        - name: MONGODB_URI
+          value: "mongodb://adminuser:changeme@mongodb-0:27017"
+        - name: SECRET_KEY
+          value: "secret-change"
+        command: ["/app/tasky"] 

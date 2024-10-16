@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tasky-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: tasky-wiz
+  ports:
+    - name: https
+      port: 8080
+      targetPort: 8080

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: csnow-tasky
+  labels:
+    app: tasky 
+spec:
+  serviceAccountName: tasky-app
+  containers:
+  - name: csnow-tasky
+    image: csnow/csnow-tasky:1.2
+    env:
+    - name: MONGODB_URI
+      value: "mongodb://adminuser:changeme@mongodb-0:27017"
+    - name: SECRET_KEY
+      value: "secret-change"
+    command: ["/app/tasky"] 

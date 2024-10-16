@@ -1,5 +1,6 @@
 data "google_compute_image" "ubuntu" {
   family  = "ubuntu-1804-mongodb"
+  image_id = "ubuntu-1804-mongodb-wiz"
   project = "admin-services-279721"
 }
 

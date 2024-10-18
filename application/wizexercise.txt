@@ -1,0 +1,6 @@
+This is the documentation file for the wiz demo.
+
+Create GKE cluster 
+Deploy web app
+Deploy mongodb on GCE instance
+

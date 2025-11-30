@@ -1,7 +1,7 @@
 data "google_compute_image" "ubuntu" {
 #  family  = "ubuntu-1804-mongodb"
-  name = "ubuntu-1804-mongodb-wiz"
-  project = "admin-services-279721"
+  name = "ubuntu-2510-questing-amd64-v20251120"
+  project = "csnow-admin-services"
 }
 
 
@@ -27,7 +27,8 @@ resource "google_compute_instance" "default" {
     }
     service_account {
         # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-        email  = "tf-provisioner-dev@admin-services-279721.iam.gserviceaccount.com"
+        #email  = "tf-provisioner-dev@admin-services-279721.iam.gserviceaccount.com"
+        email  = "terraform-iac@csnow-admin-services.iam.gserviceaccount.com"
         scopes = ["cloud-platform"]
     }
 }

@@ -1,8 +1,8 @@
-data "google_compute_image" "ubuntu" {
-#  family  = "ubuntu-1804-mongodb"
-  name = "ubuntu-2510-questing-amd64-v20251120"
-  project = "csnow-admin-services"
-}
+#data "google_compute_image" "ubuntu" {
+##  family  = "ubuntu-1804-mongodb"
+#  name = "ubuntu-2510-questing-amd64-v20251120"
+#  project = "csnow-admin-services"
+#}
 
 
 resource "google_compute_instance" "default" {
@@ -12,7 +12,8 @@ resource "google_compute_instance" "default" {
  
     boot_disk {
          initialize_params {
-             image = data.google_compute_image.ubuntu.self_link 
+             #image = data.google_compute_image.ubuntu.self_link 
+             image = "ubuntu-2510-amd64"
          }
     }
 

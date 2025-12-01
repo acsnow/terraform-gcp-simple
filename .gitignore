@@ -1,1 +1,3 @@
 ignore
+.terraform
+.terraform.lock.hcl

@@ -8,8 +8,7 @@
 resource "google_compute_instance" "default" {
     count = var.node_count
     name = "${var.prefix}-${count.index}"
-    machine_type = "n1-standard-2"
-    #machine_type = "n1-standard-1"
+    machine_type = "n1-standard-1"
  
     boot_disk {
          initialize_params {

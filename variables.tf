@@ -3,7 +3,7 @@ variable "prefix" {
 }
 
 variable "project" {
-  default = "admin-services"
+  default = "csnow-admin-services"
 }
 
 variable "vpc" {

@@ -1,17 +1,17 @@
 variable "prefix" {
-  default = "vault"
+  default = "orca-security"
 }
 
 variable "project" {
-  default = "tfc-sip-02"
+  default = "csnow-admin-services"
 }
 
 variable "vpc" {
-  default = "dr-vault-vpc"
+  default = "default"
 }
 
 variable "subnet" {
-  default = "dr-subnet-01"
+  default = "default"
 }
 
 variable "node_count" {

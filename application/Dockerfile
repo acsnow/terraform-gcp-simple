@@ -13,6 +13,5 @@ FROM alpine:3.20.3 as release
 WORKDIR /app
 COPY --from=build  /go/src/tasky/tasky .
 COPY --from=build  /go/src/tasky/assets ./assets
-COPY wizexercise.txt ./assets
 #EXPOSE 8080
 #ENTRYPOINT ["/app/tasky"]

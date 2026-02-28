@@ -1,9 +1,9 @@
 variable "prefix" {
-  default = "vault"
+  default = "orca"
 }
 
 variable "project" {
-  default = "admin-services"
+  default = "csnow-admin-services"
 }
 
 variable "vpc" {

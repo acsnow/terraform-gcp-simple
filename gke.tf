@@ -1,7 +1,7 @@
 
 
-resource "google_container_cluster" "demo_wiz_01" {
-  name     = "demo-wiz-01"
+resource "google_container_cluster" "demo_orca_01" {
+  name     = "demo-orca-01"
   location = "${var.zone}"
   deletion_protection = false
   remove_default_node_pool = false

@@ -5,7 +5,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: tasky-wiz
+    app: tasky-orca
   ports:
     - name: https
       port: 8080

@@ -8,15 +8,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tasky-wiz
+      app: tasky-orca
   template:
     metadata:
       labels:
-        app: tasky-wiz
+        app: tasky-orca
     spec:
       serviceAccountName: tasky-sa
       containers:
-      - name: tasky-wiz
+      - name: tasky-orca
         image: csnow/csnow-tasky:1.2
         env:
         - name: MONGODB_URI

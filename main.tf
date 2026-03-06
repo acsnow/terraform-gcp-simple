@@ -1,21 +1,22 @@
 provider "google" {
   project      = "${var.project}"
-  region       = "us-west1"
-  zone 	       = "us-west1-a"
+  region       = "us-central1"
+  zone 	       = "us-central1-a"
 }
 
 
 resource "google_compute_instance" "default" {
     count = var.node_count
     name = "${var.prefix}-${count.index}"
-    machine_type = "n1-standard-1"
+    machine_type = "e2-micro"
     allow_stopping_for_update = true
 
     boot_disk {
          initialize_params {
              #image =  data.google_compute_image.ubuntu_image.self_link
              #image = "rhel-8-v20230509"
-             image =  "ubuntu-2310-mantic-amd64-v20240305"
+             #image =  "ubuntu-2310-mantic-amd64-v20240305"
+             image =  "ubuntu-2204-jammy-v20260226"
          }
     }
 

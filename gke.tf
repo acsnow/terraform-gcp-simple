@@ -2,20 +2,21 @@
 
 resource "google_container_cluster" "demo_orca_01" {
   name     = "demo-orca-01"
-  location = "${var.zone}"
+  #location = "${var.zone}"
+  location = "us-west1"
   deletion_protection = false
-  remove_default_node_pool = false
-
+#  remove_default_node_pool = false
+  enable_autopilot = true
   # We can define additional properties such as node pools, networking, etc.
-  initial_node_count = 1
-  node_config {
-    machine_type = "n2-standard-2"
-
-    # Configure the OAuth scopes to allow the nodes to access Google Cloud services
-    oauth_scopes = [
-      "https://www.googleapis.com/auth/cloud-platform",
-    ]
-  }
+#  initial_node_count = 1
+#  node_config {
+#    machine_type = "n2-standard-2"
+#
+#    # Configure the OAuth scopes to allow the nodes to access Google Cloud services
+#    oauth_scopes = [
+#      "https://www.googleapis.com/auth/cloud-platform",
+#    ]
+#  }
 
   network = "${var.vpc}"
   subnetwork = "${var.subnet}"

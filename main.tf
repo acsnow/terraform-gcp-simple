@@ -1,14 +1,14 @@
 provider "google" {
   project      = "${var.project}"
-  region       = "us-west2"
-  zone 	       = "us-west2-a"
+  region       = "us-central1"
+  zone 	       = "us-central1-a"
 }
 
 
 resource "google_compute_instance" "default" {
     count = var.node_count
     name = "${var.prefix}-${count.index}"
-    machine_type = "n1-standard-2"
+    machine_type = "e2-micro"
     allow_stopping_for_update = true
 
     boot_disk {

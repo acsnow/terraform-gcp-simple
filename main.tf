@@ -16,7 +16,7 @@ resource "google_compute_instance" "default" {
              #image =  data.google_compute_image.ubuntu_image.self_link
              #image = "rhel-8-v20230509"
              #image =  "ubuntu-2310-mantic-amd64-v20240305"
-             image =  "ubuntu-pro-1604-xenial-v20260114"
+             image =  "ubuntu-2204-jammy-v20260226"
          }
     }
 

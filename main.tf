@@ -33,4 +33,17 @@ resource "google_compute_instance" "default" {
     #depends_on = ["google_compute_firewall.default"]
 }
 
+resource "google_storage_bucket" "scan_test_bucket" {
+  name          = "csnow-orca-scan-test"
+  location      = "US" # Multi-region US, or use a specific region like "US-CENTRAL1"
+  force_destroy = true  # Allows Terraform to delete the bucket even if it contains objects
 
+  # Optional: standard security and lifecycle settings
+  public_access_prevention = "enforced"
+  
+  versioning {
+    enabled = true
+  }
+
+  uniform_bucket_level_access = true
+}

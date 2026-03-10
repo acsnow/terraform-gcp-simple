@@ -7,11 +7,11 @@ variable "project" {
 }
 
 variable "vpc" {
-  default = "dr-vault-vpc"
+  default = "default"
 }
 
 variable "subnet" {
-  default = "dr-subnet-01"
+  default = "default"
 }
 
 variable "node_count" {

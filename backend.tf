@@ -1,9 +1,6 @@
-#terraform {
-#  backend "remote" {
-#    organization = "ignw"
-#
-#    workspaces {
-#      name = "terraform-gcp-simple"
-#    }
-#  }
-#}
+terraform {
+  backend "gcs" {
+    bucket  = "terraform-csnow-state"
+    prefix  = "terraform-gcp-simple-state"
+  }
+}

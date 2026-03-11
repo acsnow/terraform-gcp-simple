@@ -8,7 +8,8 @@ provider "google" {
 resource "google_compute_instance" "default" {
     count = var.node_count
     name = "${var.prefix}-${count.index}"
-    machine_type = "e2-micro"
+    #machine_type = "e2-micro"
+    machine_type = "e2-small"
     allow_stopping_for_update = true
 
     boot_disk {

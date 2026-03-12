@@ -1,6 +1,6 @@
 ignore
 .terraform.lock.hcl
 .terraform/
-csnow-admin-services-740877b5c705.json
+csnow-admin-services.json
 terraform.tfstate
 terraform.tfstate.backup

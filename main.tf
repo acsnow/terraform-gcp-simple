@@ -35,7 +35,7 @@ resource "google_compute_instance" "default" {
 }
 
 resource "google_storage_bucket" "scan_test_bucket" {
-  name          = "csnow-orca-scan-test"
+  name          = "${var.bucket_name}"
   location      = "US" # Multi-region US, or use a specific region like "US-CENTRAL1"
   force_destroy = true  # Allows Terraform to delete the bucket even if it contains objects
 

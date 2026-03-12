@@ -17,3 +17,7 @@ variable "subnet" {
 variable "node_count" {
   default = 1
 }
+
+variable "bucket_name" {
+  default = "csnow-orca-scan-test"
+}

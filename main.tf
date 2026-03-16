@@ -48,3 +48,20 @@ resource "google_storage_bucket" "scan_test_bucket" {
 
   uniform_bucket_level_access = true
 }
+
+
+resource "google_storage_bucket" "scan_test_bucket_second" {
+  name          = "${var.bucket_name}-second"
+  location      = "US-WEST1" # Multi-region US, or use a specific region like "US-CENTRAL1"
+  force_destroy = true  # Allows Terraform to delete the bucket even if it contains objects
+
+  # Optional: standard security and lifecycle settings
+  public_access_prevention = "enforced"
+
+  versioning {
+    enabled = true
+  }
+
+  uniform_bucket_level_access = true
+}
+

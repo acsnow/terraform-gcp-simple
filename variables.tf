@@ -1,9 +1,9 @@
 variable "prefix" {
-  default = "orca"
+  default = "orca-csnow"
 }
 
 variable "project" {
-  default = "csnow-admin-services"
+  default = "csnow-test-orca"
 }
 
 variable "vpc" {
@@ -15,9 +15,9 @@ variable "subnet" {
 }
 
 variable "node_count" {
-  default = 0
+  default = 2
 }
 
 variable "bucket_name" {
-  default = "csnow-orca-scan-test"
+  default = "csnow-test-orca-data"
 }

@@ -3,7 +3,7 @@ variable "prefix" {
 }
 
 variable "project" {
-  default = "csnow-test-orca"
+  default = "csnow-orca-cse-lab"
 }
 
 variable "vpc" {
@@ -19,5 +19,5 @@ variable "node_count" {
 }
 
 variable "bucket_name" {
-  default = "csnow-test-orca-data"
+  default = "csnow-orca-cse-lab-tfstate"
 }

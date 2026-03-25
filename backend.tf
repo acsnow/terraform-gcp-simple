@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "csnow-test-orca-statefile"
+    bucket  = "csnow-orca-cse-lab-tfstate"
     prefix  = "terraform-gcp-simple-state"
   }
 }

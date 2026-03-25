@@ -50,18 +50,29 @@ resource "google_storage_bucket" "scan_test_bucket" {
 }
 
 
-#resource "google_storage_bucket" "scan_test_bucket_second" {
-#  name          = "${var.bucket_name}-second"
-#  location      = "US-WEST1" # Multi-region US, or use a specific region like "US-CENTRAL1"
-#  force_destroy = true  # Allows Terraform to delete the bucket even if it contains objects
-#
-#  # Optional: standard security and lifecycle settings
-#  public_access_prevention = "enforced"
-#
-#  versioning {
-#    enabled = true
-#  }
-#
-#  uniform_bucket_level_access = true
-#}
+resource "google_container_cluster" "demo_orca_01" {
+  name     = "${var.prefix}-gke-01"
+  location = "us-west1-a"
+  deletion_protection = false
+  remove_default_node_pool = false
 
+  # We can define additional properties such as node pools, networking, etc.
+  initial_node_count = 1
+  node_config {
+    machine_type = "e2-small"
+
+    # Configure the OAuth scopes to allow the nodes to access Google Cloud services
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform",
+    ]
+  }
+
+  network = "${var.vpc}"
+  subnetwork = "${var.subnet}"
+
+  # Enable some addons for the cluster
+  addons_config {
+    http_load_balancing        { disabled = false }
+    horizontal_pod_autoscaling { disabled = false }
+  }
+}

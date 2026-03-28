@@ -19,5 +19,5 @@ variable "node_count" {
 }
 
 variable "bucket_name" {
-  default = "csnow-orca-cse-lab-tfstate"
+  default = "csnow-orca-test-bucket-01"
 }

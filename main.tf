@@ -85,7 +85,7 @@ resource "google_container_cluster" "orca-gke-private" {
   remove_default_node_pool = false
 
   # We can define additional properties such as node pools, networking, etc.
-  initial_node_count = 3
+  initial_node_count = 1
   node_config {
     machine_type = "e2-medium"
 

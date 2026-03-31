@@ -78,43 +78,43 @@ resource "google_container_cluster" "demo_orca_01" {
   }
 }
 
-resource "google_container_cluster" "orca-gke-private" {
-  name     = "${var.prefix}-private-gke-01"
-  location = "us-west1-a"
-  deletion_protection = false
-  remove_default_node_pool = false
-
-  # We can define additional properties such as node pools, networking, etc.
-  initial_node_count = 1
-  node_config {
-    machine_type = "e2-medium"
-
-    # Configure the OAuth scopes to allow the nodes to access Google Cloud services
-    oauth_scopes = [
-      "https://www.googleapis.com/auth/cloud-platform",
-    ]
-  }
-
-  private_cluster_config {
-    enable_private_nodes    = true
-    enable_private_endpoint = true
-    master_ipv4_cidr_block  = "172.16.0.0/28"
-  }
-
-  master_authorized_networks_config {
-    cidr_blocks {
-      cidr_block   = "10.0.0.0/18"
-      display_name = "internal-vpc-access"
-    }
-  }
-
-  network = "${var.vpc}"
-  subnetwork = "${var.subnet}"
-
-  # Enable some addons for the cluster
-  #addons_config {
-  #  http_load_balancing        { disabled = false }
-  #  horizontal_pod_autoscaling { disabled = false }
-  #}
-}
+#resource "google_container_cluster" "orca-gke-private" {
+#  name     = "${var.prefix}-private-gke-01"
+#  location = "us-west1-a"
+#  deletion_protection = false
+#  remove_default_node_pool = false
+#
+#  # We can define additional properties such as node pools, networking, etc.
+#  initial_node_count = 1
+#  node_config {
+#    machine_type = "e2-medium"
+#
+#    # Configure the OAuth scopes to allow the nodes to access Google Cloud services
+#    oauth_scopes = [
+#      "https://www.googleapis.com/auth/cloud-platform",
+#    ]
+#  }
+#
+#  private_cluster_config {
+#    enable_private_nodes    = true
+#    enable_private_endpoint = true
+#    master_ipv4_cidr_block  = "172.16.0.0/28"
+#  }
+#
+#  master_authorized_networks_config {
+#    cidr_blocks {
+#      cidr_block   = "10.0.0.0/18"
+#      display_name = "internal-vpc-access"
+#    }
+#  }
+#
+#  network = "${var.vpc}"
+#  subnetwork = "${var.subnet}"
+#
+#  # Enable some addons for the cluster
+#  #addons_config {
+#  #  http_load_balancing        { disabled = false }
+#  #  horizontal_pod_autoscaling { disabled = false }
+#  #}
+#}
 

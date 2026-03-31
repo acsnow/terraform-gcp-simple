@@ -15,7 +15,7 @@ variable "subnet" {
 }
 
 variable "node_count" {
-  default = 2
+  default = 1
 }
 
 variable "bucket_name" {

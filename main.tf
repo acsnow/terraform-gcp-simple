@@ -8,8 +8,8 @@ provider "google" {
 resource "google_compute_instance" "default" {
     count = var.node_count
     name = "${var.prefix}-${count.index}"
-    #machine_type = "e2-micro"
-    machine_type = "e2-small"
+    machine_type = "e2-micro"
+    #machine_type = "n2-standard-4"
     allow_stopping_for_update = true
 
     boot_disk {
@@ -19,10 +19,24 @@ resource "google_compute_instance" "default" {
              #image =  "ubuntu-2310-mantic-amd64-v20240305"
              #image =  "ubuntu-2204-jammy-v20260226"
              image =  "ubuntu-2510-questing-amd64-v20260320"
+             size  = 100
          }
     }
 
-    #can_ip_forward = true
+#    can_ip_forward = true
+#    guest_accelerator {
+#      type  = "nvidia-tesla-t4" # Example: T4 GPU
+#      count = 1
+#    }
+#
+#    scheduling {
+#      on_host_maintenance = "TERMINATE" # Required for GPU instances
+#      automatic_restart   = true
+#    }
+#
+#    metadata = {
+#      install-nvidia-driver = "True" # Installs drivers on startup
+#    }
 
     network_interface {
         network = "${var.vpc}"

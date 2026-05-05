@@ -3,7 +3,7 @@ variable "prefix" {
 }
 
 variable "project" {
-  default = "csnow-orca-cse-lab"
+  default = "csnow-orca-test"
 }
 
 variable "vpc" {

@@ -5,6 +5,11 @@ provider "google" {
 }
 
 
+data "google_compute_image" "latest_ubuntu" {
+  family  = "ubuntu-2510-amd64"
+  project = "ubuntu-os-cloud"
+}
+
 resource "google_compute_instance" "default" {
     count = var.node_count
     name = "${var.prefix}-${count.index}"
@@ -14,11 +19,8 @@ resource "google_compute_instance" "default" {
 
     boot_disk {
          initialize_params {
-             #image =  data.google_compute_image.ubuntu_image.self_link
-             #image = "rhel-8-v20230509"
-             #image =  "ubuntu-2310-mantic-amd64-v20240305"
-             #image =  "ubuntu-2204-jammy-v20260226"
-             image =  "ubuntu-2510-questing-amd64-v20260320"
+             image =  data.google_compute_image.latest_ubuntu.self_link
+             #image =  "ubuntu-2510-questing-amd64-v20260320"
              size  = 100
          }
     }
@@ -64,6 +66,26 @@ resource "google_storage_bucket" "scan_test_bucket" {
   uniform_bucket_level_access = true
 }
 
+resource "google_storage_bucket" "scan_test_bucket_2" {
+  name          = "csnow-orca-test-bucket-02"
+  location      = "us-west1" # Multi-region US, or use a specific region like "US-CENTRAL1"
+  force_destroy = true  # Allows Terraform to delete the bucket even if it contains objects
+
+  # Optional: standard security and lifecycle settings
+  #public_access_prevention = "inherited"
+
+  versioning {
+    enabled = true
+  }
+
+  uniform_bucket_level_access = true
+}
+
+#resource "google_storage_bucket_iam_member" "public_rule" {
+#  bucket = google_storage_bucket.scan_test_bucket_2.name
+#  role   = "roles/storage.objectViewer"
+#  member = "allUsers"
+#}
 
 resource "google_container_cluster" "demo_orca_01" {
   name     = "${var.prefix}-gke-01"
